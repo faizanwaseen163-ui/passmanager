@@ -1,0 +1,90 @@
+[HPM] Proxy created: /  -> http://127.0.0.1:5000
+==============================================================
+  PassManager Professional — Frontend
+  → Local:   http://localhost:3000
+  → Network: http://10.48.94.136:3000
+  → Proxying /api → http://127.0.0.1:5000
+==============================================================
+(node:77899) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[HPM] Proxy created: /  -> http://127.0.0.1:5000
+==============================================================
+  PassManager Professional — Frontend
+  → Local:   http://localhost:3000
+  → Network: http://10.48.94.136:3000
+  → Proxying /api → http://127.0.0.1:5000
+==============================================================
+(node:4593) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[HPM] Proxy created: /  -> http://127.0.0.1:5000
+==============================================================
+  PassManager Professional — Frontend
+  → Local:   http://localhost:3000
+  → Network: http://192.168.1.10:3000
+  → Proxying /api → http://127.0.0.1:5000
+==============================================================
+(node:19654) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[HPM] Proxy created: /  -> http://127.0.0.1:5000
+==============================================================
+  PassManager Professional — Frontend
+  → Local:   http://localhost:3000
+  → Network: http://10.48.94.136:3000
+  → Proxying /api → http://127.0.0.1:5000
+==============================================================
+(node:26317) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[HPM] Proxy created: /  -> http://127.0.0.1:5000
+==============================================================
+  PassManager Professional — Frontend
+  → Local:   http://localhost:3000
+  → Network: http://10.48.94.136:3000
+  → Proxying /api → http://127.0.0.1:5000
+==============================================================
+(node:74689) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[HPM] Proxy created: /  -> http://127.0.0.1:5000
+==============================================================
+  PassManager Professional — Frontend
+  → Local:   http://localhost:3000
+  → Network: http://10.48.94.136:3000
+  → Proxying /api → http://127.0.0.1:5000
+==============================================================
+(node:76408) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[HPM] Proxy created: /  -> http://127.0.0.1:5000
+==============================================================
+  PassManager Professional — Frontend
+  → Local:   http://localhost:3000
+  → Network: http://10.48.94.136:3000
+  → Proxying /api → http://127.0.0.1:5000
+==============================================================
+(node:76762) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[HPM] Proxy created: /  -> http://127.0.0.1:5000
+==============================================================
+  PassManager — Frontend
+  → Local:   http://localhost:4747
+  → Network: http://10.48.94.136:4747
+  → Proxying /api → http://127.0.0.1:5000
+==============================================================
+(node:77379) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[HPM] Proxy created: /  -> http://127.0.0.1:5000
+==============================================================
+  PassManager — Frontend
+  → Local:   http://localhost:4747
+  → Network: http://10.48.94.136:4747
+  → Proxying /api → http://127.0.0.1:5000
+==============================================================
+(node:8984) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[HPM] Proxy created: /  -> http://127.0.0.1:5000
+==============================================================
+  PassManager — Frontend
+  → Local:   http://localhost:4747
+  → Network: http://localhost:4747
+  → Proxying /api → http://127.0.0.1:5000
+==============================================================
+(node:11449) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)

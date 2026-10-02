@@ -1,0 +1,16 @@
+{
+  "name": "passmanager",
+  "version": "1.0.0",
+  "description": "PassManager Professional Edition — Secure encrypted password vault with modern web UI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["password-manager", "vault", "encryption", "aes-256-gcm", "argon2"],
+  "author": "PassManager",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "http-proxy-middleware": "^2.0.7"
+  }
+}

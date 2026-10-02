@@ -1,0 +1,4 @@
+node_modules/
+vault.json
+audit.log
+backups/
