@@ -486,3 +486,61 @@
 127.0.0.1 - - [22/Sep/2026 16:44:00] "GET /api/stats HTTP/1.1" 200 -
 127.0.0.1 - - [22/Sep/2026 16:46:38] "GET /api/entries HTTP/1.1" 200 -
 127.0.0.1 - - [22/Sep/2026 16:46:38] "GET /api/stats HTTP/1.1" 200 -
+==============================================================
+  PassManager Professional — Flask Backend
+  → http://127.0.0.1:5000
+  → Argon2id: True | Excel: True | MDB: False
+==============================================================
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [06/Oct/2026 19:49:57] "GET /api/status HTTP/1.1" 200 -
+/home/fiazan/Desktop/passmanager/app.py:64: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  def now_iso(): return datetime.utcnow().isoformat()
+127.0.0.1 - - [06/Oct/2026 19:50:10] "[31m[1mPOST /api/unlock HTTP/1.1[0m" 401 -
+127.0.0.1 - - [06/Oct/2026 19:50:13] "[31m[1mPOST /api/unlock HTTP/1.1[0m" 401 -
+127.0.0.1 - - [06/Oct/2026 19:50:43] "[31m[1mPOST /api/unlock HTTP/1.1[0m" 401 -
+127.0.0.1 - - [06/Oct/2026 19:50:51] "[31m[1mPOST /api/unlock HTTP/1.1[0m" 401 -
+127.0.0.1 - - [07/Oct/2026 20:18:49] "GET /api/status HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 20:19:48] "[31m[1mPOST /api/unlock HTTP/1.1[0m" 401 -
+127.0.0.1 - - [07/Oct/2026 20:20:20] "[31m[1mPOST /api/unlock HTTP/1.1[0m" 429 -
+==============================================================
+  PassManager Professional — Flask Backend
+  → http://127.0.0.1:5000
+  → Argon2id: True | Excel: True | MDB: False
+==============================================================
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [07/Oct/2026 23:31:59] "GET /api/status HTTP/1.1" 200 -
+/home/fiazan/Desktop/passmanager/app.py:64: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  def now_iso(): return datetime.utcnow().isoformat()
+127.0.0.1 - - [07/Oct/2026 23:32:35] "[31m[1mPOST /api/unlock HTTP/1.1[0m" 401 -
+127.0.0.1 - - [07/Oct/2026 23:32:50] "[31m[1mPOST /api/unlock HTTP/1.1[0m" 401 -
+127.0.0.1 - - [07/Oct/2026 23:33:55] "[31m[1mPOST /api/unlock HTTP/1.1[0m" 401 -
+==============================================================
+  PassManager Professional — Flask Backend
+  → http://127.0.0.1:5000
+  → Argon2id: True | Excel: True | MDB: False
+==============================================================
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [08/Oct/2026 00:17:23] "GET /api/status HTTP/1.1" 200 -
+/home/fiazan/Desktop/passmanager/app.py:64: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  def now_iso(): return datetime.utcnow().isoformat()
+127.0.0.1 - - [08/Oct/2026 00:18:24] "POST /api/reset-vault HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 00:18:24] "GET /api/entries HTTP/1.1" 200 -
+/home/fiazan/Desktop/passmanager/app.py:450: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  threshold = datetime.utcnow() - timedelta(days=90)
+127.0.0.1 - - [08/Oct/2026 00:18:24] "GET /api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 00:19:45] "POST /api/lock HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 00:19:59] "POST /api/unlock HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 00:19:59] "GET /api/entries HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2026 00:19:59] "GET /api/stats HTTP/1.1" 200 -

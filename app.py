@@ -220,6 +220,35 @@ def unlock():
     log_audit("UNLOCK", ip)
     return jsonify({"success": True})
 
+@app.route("/api/reset-vault", methods=["POST"])
+def reset_vault():
+    """Forgot master password: archive old vault, start a fresh one with a new password."""
+    ip = request.remote_addr or "?"
+    b = request.get_json() or {}
+    if b.get("confirm") != "RESET":
+        return jsonify({"error": "Confirmation missing"}), 400
+    new_pw = b.get("new_password", "")
+    if len(new_pw) < 4:
+        return jsonify({"error": "Minimum 4 characters required"}), 400
+
+    # keep a copy of the old (still encrypted) vault - never deleted
+    if VAULT_PATH.exists():
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+        atomic_write(BACKUP_DIR / f"old_vault_before_reset_{ts}.json",
+                     VAULT_PATH.read_text(encoding="utf-8"))
+        VAULT_PATH.unlink()
+
+    salt = secrets.token_bytes(16)
+    key = derive_key(new_pw, salt)
+    with STATE_LOCK:
+        STATE["unlocked"] = True; STATE["key"] = key; STATE["salt"] = salt
+        STATE["data"] = []; STATE["created"] = now_iso()
+        STATE["last_activity"] = time.time()
+    STATE["failed"][ip] = [0, 0]
+    save_vault()
+    log_audit("MASTER_RESET_NEW_VAULT", ip)
+    return jsonify({"success": True})
+
 @app.route("/api/lock", methods=["POST"])
 def lock():
     lock_vault("api"); return jsonify({"success": True})

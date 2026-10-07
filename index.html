@@ -199,6 +199,10 @@ body{
 .btn-primary:active{transform:translateY(0)}
 .btn-primary:disabled{opacity:.6;cursor:wait}
 .error-msg{color:var(--hc-1);font-size:13px;margin-top:12px;min-height:18px;font-weight:600;text-shadow:0 0 10px var(--hc-glow)}
+.link-btn{background:none;border:none;color:var(--hc-1);cursor:pointer;font-size:13px;font-weight:600;margin-top:14px;padding:4px 8px;font-family:inherit}
+.link-btn:hover{text-decoration:underline}
+.lock-card{max-height:calc(100vh - 40px);overflow-y:auto}
+.reset-warn{font-size:13px;color:var(--dim);line-height:1.5;margin-bottom:14px;text-align:left}
 .lock-footer{margin-top:22px;display:flex;align-items:center;justify-content:center;gap:8px;color:var(--dim);font-size:11px;font-family:'JetBrains Mono',monospace;letter-spacing:1px}
 .pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--hc-1);box-shadow:0 0 12px var(--hc-1), 0 0 20px var(--hc-glow);animation:dotPulse 1.6s infinite}
 @keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
@@ -522,6 +526,7 @@ body{
     <div class="lock-icon">🔐</div>
     <h1>PassManager</h1>
     <p class="sub" id="lockSub">// Secure Access Required</p>
+    <div id="loginView">
     <div class="pw-wrap">
       <input type="password" id="masterPassword" placeholder="Master Password"
              autocomplete="new-password" onkeydown="if(event.key==='Enter')unlockVault()"/>
@@ -536,6 +541,24 @@ body{
       <span>Unlock Vault</span>
     </button>
     <div class="error-msg" id="lockError"></div>
+      <button class="link-btn" id="forgotLink" onclick="showResetView()">Forgot Master Password?</button>
+    </div>
+
+    <div id="resetView" style="display:none">
+      <div class="reset-warn">⚠ Purana master password recover nahi ho sakta (data usi se encrypted hai). Reset karne se naya khali vault banega. Purani vault ki copy <b>backups</b> folder mein safe rahegi.</div>
+      <div class="pw-wrap">
+        <input type="password" id="resetNew" placeholder="New Master Password" autocomplete="new-password"/>
+        <button class="pw-toggle" onclick="togglePw('resetNew',this)">👁</button>
+      </div>
+      <div class="pw-wrap">
+        <input type="password" id="resetNew2" placeholder="Confirm New Password" autocomplete="new-password"
+               onkeydown="if(event.key==='Enter')doResetMaster()"/>
+        <button class="pw-toggle" onclick="togglePw('resetNew2',this)">👁</button>
+      </div>
+      <button class="btn-primary" id="resetBtn" onclick="doResetMaster()"><span>Reset Password</span></button>
+      <div class="error-msg" id="resetError"></div>
+      <button class="link-btn" onclick="hideResetView()">← Back to login</button>
+    </div>
     <div class="lock-footer">
       <div class="pulse-dot"></div>
       <span id="lockStatusText">SYSTEM SECURE // ENCRYPTED</span>
@@ -796,6 +819,45 @@ async function unlockVault(){
   }finally{
     btn.disabled = false;
     btn.innerHTML = '<span>Unlock Vault</span>';
+  }
+}
+
+/* ============ FORGOT PASSWORD / RESET ============ */
+function showResetView(){
+  document.getElementById('lockError').textContent = '';
+  document.getElementById('resetError').textContent = '';
+  document.getElementById('loginView').style.display = 'none';
+  document.getElementById('resetView').style.display = 'block';
+  document.getElementById('lockSub').textContent = '// Reset master password';
+}
+function hideResetView(){
+  document.getElementById('resetView').style.display = 'none';
+  document.getElementById('loginView').style.display = 'block';
+  document.getElementById('lockSub').textContent = '// Secure Access Required';
+  ['resetNew','resetNew2'].forEach(id=>document.getElementById(id).value = '');
+}
+async function doResetMaster(){
+  const errEl = document.getElementById('resetError');
+  const btn = document.getElementById('resetBtn');
+  const p1 = document.getElementById('resetNew').value;
+  const p2 = document.getElementById('resetNew2').value;
+  errEl.textContent = '';
+  if (p1.length < 4){ errEl.textContent = 'Minimum 4 characters required'; return; }
+  if (p1 !== p2){ errEl.textContent = 'Passwords do not match'; return; }
+  if (!confirm('Purana saved data in the vault nahi khulega aur naya khali vault ban jayega. Continue?')) return;
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span><span>Resetting...</span>';
+  try{
+    await api('/reset-vault', {method:'POST', body: JSON.stringify({new_password: p1, confirm: 'RESET'})});
+    toast('✅ New master password set', 'success');
+    hideResetView();
+    document.getElementById('masterPassword').value = '';
+    showMain(); loadAll();
+  }catch(e){
+    errEl.textContent = '⚠ ' + e.message;
+  }finally{
+    btn.disabled = false;
+    btn.innerHTML = '<span>Reset Password</span>';
   }
 }
 
